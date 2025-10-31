@@ -1,0 +1,60 @@
+# Dashboard de Vendas Consinco - Streamlit + Oracle
+
+Este projeto cria um dashboard interativo para análise de vendas usando Streamlit, conectando-se a um banco de dados Oracle do sistema Consinco via cx_Oracle.
+
+## Pré-requisitos
+
+- Python 3.7 ou superior
+- Acesso e permissões ao banco Oracle Consinco
+- Oracle Instant Client instalado (se necessário, conforme cx_Oracle)
+- Microsoft Visual C++ Build Tools 14.0 ou superior (Windows)
+
+## Instalação de dependências
+
+No terminal, instale as bibliotecas necessárias:
+
+pip install streamlit pandas plotly
+
+
+Para instalar o cx_Oracle no Windows, é necessário antes instalar o build tools:
+
+- Baixe e instale o [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/), selecionando "Desktop development with C++".
+- Após instalar, rode:
+
+pip install cx_Oracle
+
+
+## Configuração
+
+No código `app.py`, ajuste a string de conexão Oracle para o seu ambiente:
+
+dsn = cx_Oracle.makedsn("host.oracle.local", 1521, service_name="consinco")
+usuario = "SEU_USUARIO"
+senha = "SUA_SENHA"
+
+
+## Execução
+
+No terminal, execute seu app com:
+
+streamlit run app.py
+
+Caso o comando `streamlit` não funcione, utilize:
+
+python -m streamlit run app.py
+
+
+## Sobre o projeto
+
+- Executa a query SQL que agrega vendas por marca e mês.
+- Mostra KPIs: pedidos, clientes, valor líquido total e ticket médio.
+- Apresenta gráficos interativos e tabela detalhada.
+- Permite filtrar por marca para análise segmentada.
+
+## Problemas comuns
+
+- **Erro ao compilar cx_Oracle:** instale o Microsoft Visual C++ Build Tools conforme descrito.
+- **Comando 'streamlit' não encontrado:** verifique se Streamlit está instalado no ambiente Python e use `python -m streamlit` para rodar.
+- **Configuração da conexão:** garanta que host, porta e serviço Oracle estejam corretos e acessíveis da máquina.
+
+---
