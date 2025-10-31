@@ -1,0 +1,6 @@
+# Ignorar credenciais e arquivos locais
+.streamlit/secrets.toml
+__pycache__/
+.env
+*.db
+*.sqlite3

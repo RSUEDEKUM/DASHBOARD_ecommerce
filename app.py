@@ -8,11 +8,14 @@ import os
 # Ajuste do PATH para Oracle Instant Client
 os.environ["PATH"] = r"C:\oracle\instantclient_19_28;" + os.environ["PATH"]
 
-# Configurações iniciais
-usuario = "CLT167027RAVEL"
-senha = "bdtre09841FCOPR?!"
-dsn = cx_Oracle.makedsn("201.157.243.3", 1521, service_name="CHE0V5_167027_C")
+usuario = st.secrets["DB_USER"]
+senha = st.secrets["DB_PASS"]
+host = st.secrets["DB_HOST"]
+porta = st.secrets["DB_PORT"]
+servico = st.secrets["DB_SERVICE"]
 
+# Montando o DSN para o Oracle
+dsn = cx_Oracle.makedsn(host, porta, service_name=servico)
 # --- CONSULTAS ---
 query_detalhada = """
 SELECT
